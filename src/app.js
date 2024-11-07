@@ -1,4 +1,4 @@
-// app.js
+// src/app.js
 import express from "express";
 import cors from "cors";
 import salesRouter from "./routes/sales.js";
@@ -8,11 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Usar las rutas de ventas
+// Usar las rutas de ventas y productos
 app.use("/api", salesRouter);
 app.use("/api", itemsRouter);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Servidor de API corriendo en el puerto ${PORT}`);
-});
+export default app;
